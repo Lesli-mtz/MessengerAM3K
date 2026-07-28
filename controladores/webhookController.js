@@ -27,6 +27,9 @@ function verificarWebhook(req, res) {
 async function recibirMensaje(req, res) {
 
     const body = req.body;
+    
+    console.log("Mensaje recibido de Meta:");
+    console.log(JSON.stringify(body, null, 2));
 
     if (body.object === "page") {
 
