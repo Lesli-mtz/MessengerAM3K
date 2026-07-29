@@ -39,13 +39,18 @@ async function recibirMensaje(req, res) {
 
             const idUsuario = evento.sender.id;
 
-            if (evento.message) {
+            if (evento.message && evento.message.text) {
 
                 const mensaje = evento.message.text;
 
                 const respuesta = responder(mensaje);
 
-                enviarMensaje(idUsuario, respuesta);
+                try{
+                    await enviarMensaje(idUsuario, respuesta);
+                } catch (error) {
+                    console. error("Error enviando mensaje: ", error);
+                }
+                await enviarMensaje(idUsuario, respuesta);
 
             }
 

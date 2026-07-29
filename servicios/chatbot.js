@@ -5,6 +5,8 @@ async function enviarMensaje(idUsuario, mensaje) {
 
     const token = process.env.PAGE_ACCESS_TOKEN;
 
+    console.log("TOKEN:", token);
+
     try {
 
         await axios.post(
