@@ -50,7 +50,6 @@ async function recibirMensaje(req, res) {
                 } catch (error) {
                     console. error("Error enviando mensaje: ", error);
                 }
-                await enviarMensaje(idUsuario, respuesta);
 
             }
 
