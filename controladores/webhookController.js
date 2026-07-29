@@ -1,6 +1,5 @@
 const responder = require("../respuestas/resAutomaticas");
 const enviarMensaje = require("../servicios/chatbot");
-const conversaciones = {};
 
 // Verificar el Webhook
 function verificarWebhook(req, res) {
@@ -44,77 +43,9 @@ async function recibirMensaje(req, res) {
 
                 const mensaje = evento.message.text;
 
-// Si el usuario ya está en una conversación
-if (conversaciones[idUsuario]) {
+                const respuesta = responder(mensaje);
 
-    const estado = conversaciones[idUsuario].estado;
-
-    // Esperando categoría
-    if (estado === "esperandoCategoria") {
-
-        conversaciones[idUsuario] = {
-            estado: "esperandoProducto",
-            categoria: mensaje
-        };
-
-        enviarMensaje(
-            idUsuario,
-            "Perfecto. 😊\n\n¿Qué producto de " + mensaje + " estás buscando?"
-        );
-
-    }
-
-    // Esperando nombre del producto
-    else if (estado === "esperandoProducto") {
-
-        conversaciones[idUsuario].estado = "esperandoCantidad";
-        conversaciones[idUsuario].producto = mensaje;
-
-        enviarMensaje(
-            idUsuario,
-            "Muy bien.\n\n¿Cuántas piezas de " + mensaje + " necesitas?"
-        );
-
-    }
-
-    // Esperando cantidad
-    else if (estado === "esperandoCantidad") {
-
-        const producto = conversaciones[idUsuario].producto;
-
-        enviarMensaje(
-            idUsuario,
-            "✅ Gracias.\n\nTu solicitud quedó registrada:\n\nProducto: " +
-            producto +
-            "\nCantidad: " +
-            mensaje +
-            "\n\nEn unos momentos un asesor continuará con tu atención."
-        );
-
-        delete conversaciones[idUsuario];
-
-    }
-
-}
-else {
-
-    const respuesta = responder(mensaje);
-
-    enviarMensaje(idUsuario, respuesta);
-
-    // Si el usuario pidió productos
-    if (
-        mensaje.toLowerCase() === "1" ||
-        mensaje.toLowerCase().includes("producto")
-    ) {
-
-        conversaciones[idUsuario] = {
-            estado: "esperandoCategoria"
-        };
-
-    }
-
-}
+                enviarMensaje(idUsuario, respuesta);
 
             }
 
