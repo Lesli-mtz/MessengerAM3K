@@ -2,7 +2,7 @@ function mostrarRespuesta(mensaje) {
 
     const texto = mensaje.toLowerCase().trim();
 
-    const menu = "👋 ¡Hola! Bienvenido(a) a Distribuidora AM3K.\n\nSoy tu asistente virtual 🤖 ¿En qué podemos ayudarte?\n\n1️⃣ Productos\n2️⃣ Solicitar una cotización\n3️⃣ Horario de atención\n4️⃣ Ubicación\n5️⃣ Envíos\n6️⃣ Hablar con un asesor\n\nPuedes escribir el número de la opción o simplemente escribir lo que necesitas.";
+    const menu = "¡Hola!👋 Bienvenido(a) a Distribuidora AM3K.\nSoy tu asistente virtual 🤖 ¿En qué puedo ayudarte hoy?\n\n1️⃣ Productos\n2️⃣ Solicitar una cotización\n3️⃣ Horario de atención\n4️⃣ Ubicación\n5️⃣ Envíos\n6️⃣ Hablar con un asesor\n\nPuedes escribir el número de la opción o simplemente escribir lo que necesitas.";
 
     // Saludos
     if (
@@ -32,57 +32,7 @@ function mostrarRespuesta(mensaje) {
         texto.includes("que venden") ||
         texto.includes("qué venden")
     ) {
-        return "📦 Manejamos las siguientes categorías:\n\n• Electrodomésticos\n• Cuidado personal\n• Jardinería\n• Perfumería\n• Juguetes\n• Artículos para el hogar\n\nEscribe la categoría que te interesa.";
-    }
-
-    // Juguetes
-    if (
-        texto.includes("juguete") ||
-        texto.includes("juguetes")
-    ) {
-        return "🧸 Con gusto te ayudamos con la categoría de juguetes.\n\nPor favor indícanos el nombre del juguete que buscas y la cantidad que necesitas para ayudarte con tu solicitud.";
-    }
-
-    // Electrodomésticos
-    if (
-        texto.includes("electrodoméstico") ||
-        texto.includes("electrodomestico") ||
-        texto.includes("electrodomésticos") ||
-        texto.includes("electrodomesticos")
-    ) {
-        return "🔌 Con gusto te ayudamos con los electrodomésticos.\n\nIndícanos el nombre del producto y la cantidad que necesitas.";
-    }
-
-    // Cuidado personal
-    if (
-        texto.includes("cuidado personal")
-    ) {
-        return "🧴 Con gusto te ayudamos con los productos de cuidado personal.\n\nIndícanos el producto que buscas.";
-    }
-
-    // Jardinería
-    if (
-        texto.includes("jardineria") ||
-        texto.includes("jardinería")
-    ) {
-        return "🌿 Con gusto te ayudamos con los artículos de jardinería.\n\nIndícanos el producto que necesitas.";
-    }
-
-    // Perfumería
-    if (
-        texto.includes("perfumeria") ||
-        texto.includes("perfumería")
-    ) {
-        return "🌸 Con gusto te ayudamos con los productos de perfumería.\n\nIndícanos el producto que buscas.";
-    }
-
-    // Hogar
-    if (
-        texto.includes("hogar") ||
-        texto.includes("artículos para el hogar") ||
-        texto.includes("articulos para el hogar")
-    ) {
-        return "🏠 Con gusto te ayudamos con los artículos para el hogar.\n\nIndícanos el producto que buscas.";
+        return "📦 Manejamos las siguientes categorías de productos:\n\n• Electrodomésticos\n• Cuidado personal\n• Jardinería\n• Perfumería\n• Juguetes\n• Artículos para el hogar\n\nEscribe la categoría que te interesa.";
     }
 
     // Cotización
