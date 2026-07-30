@@ -15,7 +15,6 @@ const categorias = [
     "jardin",
     "perfumería",
     "perfumeria",
-    "perfumes",
     "juguetes",
     "artículos para el hogar",
     "articulos para el hogar",
@@ -116,6 +115,18 @@ if (conversacion.estado === "esperandoCategoria") {
 
     }
 
+    conversacion.categoria = mensaje;
+    conversacion.estado = "esperandoProducto";
+
+    await enviarMensaje(
+        idUsuario,
+        "Excelente. 😊\n\n¿Qué producto de " +
+        mensaje +
+        " estás buscando?"
+    );
+    return;
+}
+
 // ESPERANDO PRODUCTO
 if (conversacion.estado === "esperandoProducto") {
 
@@ -154,20 +165,6 @@ if (conversacion.estado === "esperandoCantidad") {
 
 }
 
-    conversacion.categoria = mensaje;
-    conversacion.estado = "esperandoProducto";
-
-    await enviarMensaje(
-        idUsuario,
-        "Excelente. 😊\n\n¿Qué producto de " +
-        mensaje +
-        " estás buscando?"
-    );
-
-    return;
-
-}
-
 // ACTIVAR PRODUCTOS
 if (
     texto === "1" ||
@@ -176,11 +173,14 @@ if (
 
     conversaciones[idUsuario].estado = "esperandoCategoria";
 
+    const respuesta = responder(mensaje);
+    await enviarMensaje(idUsuario, respuesta);
+
+    return;
 }
-
+// RESPUESTA NORMAL
 const respuesta = responder(mensaje);
-
-await enviarMensaje(idUsuario, respuesta);
+    await enviarMensaje(idUsuario, respuesta);
 
             }
 
