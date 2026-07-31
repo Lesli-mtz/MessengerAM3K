@@ -78,7 +78,7 @@ function mostrarRespuesta(mensaje) {
         texto.includes("envios") ||
         texto.includes("envíos")
     ) {
-        return "🚚 Con gusto te brindaremos información sobre nuestros envíos.\n\nPara ayudarte de la mejor manera, por favor indícanos:\n\n📍El municipio o ciudad donde deseas recibir tu pedido.\n\nCon esta información verificaremos si contamos con cobertura de entrega en tu zona y te proporcionaremos la información correspondiente.";
+        return "🚚 Con gusto te brindaremos información sobre nuestros envíos.\n\nPara ayudarte de la mejor manera, por favor indícanos:\n📍El municipio o ciudad donde deseas recibir tu pedido.\n\nCon esta información verificaremos si contamos con cobertura de entrega en tu zona y te proporcionaremos la información correspondiente.";
     }
 
     // Asesor
