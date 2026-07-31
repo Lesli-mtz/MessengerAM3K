@@ -18,6 +18,8 @@ const categorias = [
     "juguetes",
     "artículos para el hogar",
     "articulos para el hogar",
+    "articulos del hogar",
+    "artículos del hogar",
     "hogar"
 ];
 
@@ -137,7 +139,7 @@ if (conversacion.estado === "esperandoProducto") {
         "✅ Gracias por tu consulta.\n\n" +
         "Categoría: " + conversacion.categoria +
         "\nProducto solicitado: " + conversacion.producto +
-        "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\nTambién te invitamos a que visites nuestra página oficial, donde conocerás todo lo que tenemos para ti 👀" + document.getElementById("https://electrozoneshop.com/") +
+        "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\nTambién te invitamos a que visites nuestra página oficial, donde conocerás todo lo que tenemos para ti 👀" +
         "¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación."
     );
 
