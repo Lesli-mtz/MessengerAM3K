@@ -213,7 +213,7 @@ if (conversacion.estado === "esperandoUbicacion") {
         "Hemos registrado que tu envío sería para:\n" +
         "📍 " + conversacion.ubicacion +
         "\n\nUn asesor verificará la cobertura, el costo y el tiempo estimado de entrega de acuerdo con tu ubicación y el producto solicitado.\n\n" +
-        "¿Deseas realizar otra consulta?\n\n" +
+        "¿Deseas realizar otra consulta?\n" +
         "Escribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación."
     );
 
