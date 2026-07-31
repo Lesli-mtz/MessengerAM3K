@@ -134,7 +134,7 @@ if (conversacion.estado === "esperandoProducto") {
 
     await enviarMensaje(
         idUsuario,
-        "✅ Gracias por tu consulta.\n\n" +
+        "✅ Gracias por tu consulta.\n" +
         "Categoría: " + conversacion.categoria +
         "\nProducto solicitado: " + conversacion.producto +
         "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\n\n" +
@@ -155,7 +155,7 @@ if (conversacion.estado === "esperandoProductoCotizacion") {
 
     await enviarMensaje(
         idUsuario,
-        "Perfecto. 👍\n\n¿Cuántas piezas de " +
+        "Perfecto. 👍\n¿Cuántas piezas de " +
         mensaje +
         " deseas cotizar?"
     );
@@ -170,7 +170,7 @@ if (conversacion.estado === "esperandoCantidadCotizacion") {
 
     await enviarMensaje(
         idUsuario,
-        "📝 Tu solicitud de cotización ha sido registrada.\n\n" +
+        "📝 Tu solicitud de cotización ha sido registrada.\n" +
         "Producto: " + conversacion.producto +
         "\nCantidad: " + conversacion.cantidad + " piezas\n\n" +
         "Un asesor elaborará tu cotización y se pondrá en contacto contigo lo antes posible.\n\n" +
