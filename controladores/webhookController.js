@@ -134,11 +134,11 @@ if (conversacion.estado === "esperandoProducto") {
 
     await enviarMensaje(
         idUsuario,
-        "✅ Gracias por tu consulta.\n" +
+        "✅ Gracias por tu consulta.\n\n" +
         "Categoría: " + conversacion.categoria +
         "\nProducto solicitado: " + conversacion.producto +
-        "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\n\n" +
-        "Si deseas realizar otra consulta escribe *Menú*.\nSi deseas finalizar la conversación escribe *Salir*."
+        "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\nTambién te invitamos a que visites nuestra página oficial, donde conocerás todo lo que tenemos para ti 👀" + document.getElementById("https://electrozoneshop.com/") +
+        "¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación."
     );
 
     delete conversaciones[idUsuario];
@@ -170,11 +170,11 @@ if (conversacion.estado === "esperandoCantidadCotizacion") {
 
     await enviarMensaje(
         idUsuario,
-        "📝 Tu solicitud de cotización ha sido registrada.\n" +
+        "📝 Tu solicitud de cotización ha sido registrada.\n\n" +
         "Producto: " + conversacion.producto +
         "\nCantidad: " + conversacion.cantidad + " piezas\n\n" +
         "Un asesor elaborará tu cotización y se pondrá en contacto contigo lo antes posible.\n\n" +
-        "Si deseas realizar otra consulta escribe *Menú*.\nSi deseas finalizar la conversación escribe *Salir*."
+        "¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación."
     );
 
     delete conversaciones[idUsuario];

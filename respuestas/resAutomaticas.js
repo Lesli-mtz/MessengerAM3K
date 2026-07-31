@@ -54,7 +54,7 @@ function mostrarRespuesta(mensaje) {
         texto.includes("abren") ||
         texto.includes("cierran")
     ) {
-        return "🕘 Nuestro horario de atención es:\n\nLunes a viernes\n9:00 a.m. a 6:00 p.m.\n\n¿Deseas realizar otra consulta?\n\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
+        return "🕘 Nuestro horario de atención es:\n\nLunes a viernes\n9:00 a.m. a 6:00 p.m.\n\n¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
     }
 
     // Ubicación
@@ -67,7 +67,7 @@ function mostrarRespuesta(mensaje) {
         texto.includes("donde") ||
         texto.includes("dónde")
     ) {
-        return "📍 Nos encontramos en:\n\nAv. Maravatío No. 3\nCol. Juan Xocotla\nTultepec, Estado de México\nC.P. 54960\n\n¿Deseas realizar otra consulta?\n\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
+        return "📍 Nos encontramos en:\n\nAv. Maravatío No. 3\nCol. Juan Xocotla\nTultepec, Estado de México\nC.P. 54960\n\n¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
     }
 
     // Envíos
@@ -78,7 +78,7 @@ function mostrarRespuesta(mensaje) {
         texto.includes("envios") ||
         texto.includes("envíos")
     ) {
-        return "🚚 Realizamos envíos dependiendo de la zona y del producto solicitado.\n\nCompártenos tu ubicación para brindarte más información.\n\n¿Deseas realizar otra consulta?\n\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
+        return "🚚 Realizamos envíos dependiendo de la zona y del producto solicitado.\n\nCompártenos tu ubicación para brindarte más información.\n\n¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
     }
 
     // Asesor
@@ -88,7 +88,7 @@ function mostrarRespuesta(mensaje) {
         texto.includes("humano") ||
         texto.includes("persona")
     ) {
-        return "👨‍💼 En unos momentos un asesor continuará con tu atención.\n\nGracias por tu paciencia.\n\n¿Deseas realizar otra consulta?\n\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
+        return "👨‍💼 En unos momentos un asesor continuará con tu atención.\n\nGracias por tu paciencia.\n\n¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
     }
 
     // Salir
