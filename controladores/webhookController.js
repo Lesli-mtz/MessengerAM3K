@@ -139,7 +139,8 @@ if (conversacion.estado === "esperandoProducto") {
         "✅ Gracias por tu consulta.\n\n" +
         "Categoría: " + conversacion.categoria +
         "\nProducto solicitado: " + conversacion.producto +
-        "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\nTambién te invitamos a que visites nuestra página oficial, donde conocerás todo lo que tenemos para ti. 👀\n\n" +
+        "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\nTambién te invitamos a que visites nuestra página oficial, donde conocerás todo lo que tenemos para ti.👇\n\n" + 
+        "🌐 Conoce nuestro catálogo completo: https://electrozoneshop.com/\n\n" +
         "¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación."
     );
 
