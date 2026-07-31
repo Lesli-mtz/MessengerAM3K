@@ -2,7 +2,7 @@ function mostrarRespuesta(mensaje) {
 
     const texto = mensaje.toLowerCase().trim();
 
-    const menu = "¡Hola!👋 Bienvenido(a) a Distribuidora AM3K.\nSoy tu asistente virtual 🤖 ¿En qué puedo ayudarte hoy?\n\n1️⃣ Productos\n2️⃣ Solicitar una cotización\n3️⃣ Horario de atención\n4️⃣ Ubicación\n5️⃣ Envíos\n6️⃣ Hablar con un asesor\n\nPuedes escribir el número de la opción o simplemente escribir lo que necesitas.";
+    const menu = "¡Hola!👋 Bienvenido(a) a Distribuidora AM3K.\nSoy tu asistente virtual 🤖 ¿En qué podemos ayudarte?\n\n1️⃣ Productos\n2️⃣ Solicitar una cotización\n3️⃣ Horario de atención\n4️⃣ Ubicación\n5️⃣ Envíos\n6️⃣ Hablar con un asesor\n\nPuedes escribir el número de la opción o simplemente escribir lo que necesitas.";
 
     // Saludos
     if (
@@ -78,7 +78,7 @@ function mostrarRespuesta(mensaje) {
         texto.includes("envios") ||
         texto.includes("envíos")
     ) {
-        return "🚚 Realizamos envíos dependiendo de la zona y del producto solicitado.\n\nCompártenos tu ubicación para brindarte más información.\n\n¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
+        return "🚚 Con gusto te brindaremos información sobre nuestros envíos.\nPara ayudarte de la mejor manera, por favor indícanos:\n\n📍El municipio o ciudad donde deseas recibir tu pedido.\nCon esta información verificaremos si contamos con cobertura de entrega en tu zona y te proporcionaremos la información correspondiente.";
     }
 
     // Asesor

@@ -139,7 +139,7 @@ if (conversacion.estado === "esperandoProducto") {
         "✅ Gracias por tu consulta.\n\n" +
         "Categoría: " + conversacion.categoria +
         "\nProducto solicitado: " + conversacion.producto +
-        "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\nTambién te invitamos a que visites nuestra página oficial, donde conocerás todo lo que tenemos para ti.👇\n\n" + 
+        "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\nTambién te invitamos a que visites nuestra página oficial, donde conocerás todo lo que tenemos para ti.👇\n" + 
         "🌐 Conoce nuestro catálogo completo: https://electrozoneshop.com/\n\n" +
         "¿Deseas realizar otra consulta?\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación."
     );
@@ -200,6 +200,46 @@ if (
     await enviarMensaje(idUsuario, respuesta);
 
     return;
+}
+
+// ESPERANDO UBICACIÓN
+if (conversacion.estado === "esperandoUbicacion") {
+
+    conversacion.ubicacion = mensaje;
+
+    await enviarMensaje(
+        idUsuario,
+        "✅ Gracias por la información.\n\n" +
+        "Hemos registrado que tu envío sería para:\n" +
+        "📍 " + conversacion.ubicacion +
+        "\n\nUn asesor verificará la cobertura, el costo y el tiempo estimado de entrega de acuerdo con tu ubicación y el producto solicitado.\n\n" +
+        "¿Deseas realizar otra consulta?\n\n" +
+        "Escribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación."
+    );
+
+    delete conversaciones[idUsuario];
+
+    return;
+
+}
+
+// ACTIVAR ENVÍOS
+if (
+    texto === "5" ||
+    texto.includes("envio") ||
+    texto.includes("envío") ||
+    texto.includes("envios") ||
+    texto.includes("envíos")
+) {
+
+    conversaciones[idUsuario].estado = "esperandoUbicacion";
+
+    const respuesta = responder(mensaje);
+
+    await enviarMensaje(idUsuario, respuesta);
+
+    return;
+
 }
 
 // ACTIVAR PRODUCTOS
