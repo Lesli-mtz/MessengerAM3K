@@ -206,12 +206,28 @@ if (
 if (conversacion.estado === "esperandoUbicacion") {
 
     conversacion.ubicacion = mensaje;
+    conversacion.estado = "esperandoProductoEnvio";
+
+    await enviarMensaje(
+        idUsuario,
+        "Perfecto. 👍\n\nAhora indícanos el producto que deseas recibir."
+    );
+
+    return;
+
+}
+
+// ESPERANDO PRODUCTO PARA ENVÍO
+if (conversacion.estado === "esperandoProductoEnvio") {
+
+    conversacion.producto = mensaje;
 
     await enviarMensaje(
         idUsuario,
         "✅ Gracias por la información.\n\n" +
-        "Hemos registrado que tu envío sería para:\n" +
-        "📍 " + conversacion.ubicacion +
+        "Resumen de tu solicitud de envío:\n" +
+        "📍 Ubicación: " + conversacion.ubicacion +
+        "\n📦 Producto: " + conversacion.producto +
         "\n\nUn asesor verificará la cobertura, el costo y el tiempo estimado de entrega de acuerdo con tu ubicación y el producto solicitado.\n\n" +
         "¿Deseas realizar otra consulta?\n" +
         "Escribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación."
