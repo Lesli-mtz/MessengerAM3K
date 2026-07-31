@@ -44,7 +44,7 @@ function mostrarRespuesta(mensaje) {
         texto.includes("precio") ||
         texto.includes("precios")
     ) {
-        return "📝 Para elaborar una cotización, por favor indícanos:\n\n• Nombre del producto.\n• Cantidad que necesitas.\n\nUn asesor revisará tu solicitud y te proporcionará la información correspondiente.\n\n¿Deseas realizar otra consulta?\n\nEscribe *Menú* para volver al menú principal o *Salir* para finalizar la conversación.";
+        return "📝 Con gusto elaboraremos una cotización.\nPor favor indícanos el nombre del producto que deseas cotizar.";
     }
 
     // Horario

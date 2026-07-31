@@ -108,7 +108,7 @@ if (conversacion.estado === "esperandoCategoria") {
 
         await enviarMensaje(
             idUsuario,
-            "❌ La categoría no es válida.\n\nSelecciona una de las siguientes:\n\n• Electrodomésticos\n• Cuidado personal\n• Jardinería\n• Perfumería\n• Juguetes\n• Artículos para el hogar"
+            "❌ La categoría no es válida.\nSelecciona una de las siguientes:\n\n• Electrodomésticos\n• Cuidado personal\n• Jardinería\n• Perfumería\n• Juguetes\n• Artículos para el hogar"
         );
 
         return;
@@ -120,7 +120,7 @@ if (conversacion.estado === "esperandoCategoria") {
 
     await enviarMensaje(
         idUsuario,
-        "Excelente. 😊\n\n¿Qué producto de " +
+        "Excelente. 😊\n¿Qué producto de " +
         mensaje +
         " estás buscando?"
     );
@@ -131,31 +131,13 @@ if (conversacion.estado === "esperandoCategoria") {
 if (conversacion.estado === "esperandoProducto") {
 
     conversacion.producto = mensaje;
-    conversacion.estado = "esperandoCantidad";
 
     await enviarMensaje(
         idUsuario,
-        "Perfecto. 👍\n\n¿Cuántas piezas de " +
-        mensaje +
-        " necesitas?"
-    );
-
-    return;
-
-}
-
-// ESPERANDO CANTIDAD
-if (conversacion.estado === "esperandoCantidad") {
-
-    conversacion.cantidad = mensaje;
-
-    await enviarMensaje(
-        idUsuario,
-        "✅ Gracias por tu solicitud.\n\n" +
+        "✅ Gracias por tu consulta.\n\n" +
         "Categoría: " + conversacion.categoria +
         "\nProducto solicitado: " + conversacion.producto +
-        "\nCantidad: " + conversacion.cantidad + " piezas"+
-        "\n\nUn asesor revisará tu solicitud y se pondrá en contacto contigo lo antes posible.\n\n" +
+        "\n\nUn asesor verificará la disponibilidad del producto y se pondrá en contacto contigo a la brevedad.\n\n" +
         "Si deseas realizar otra consulta escribe *Menú*.\nSi deseas finalizar la conversación escribe *Salir*."
     );
 
@@ -163,6 +145,58 @@ if (conversacion.estado === "esperandoCantidad") {
 
     return;
 
+}
+
+// ESPERANDO PRODUCTO PARA COTIZACIÓN
+if (conversacion.estado === "esperandoProductoCotizacion") {
+
+    conversacion.producto = mensaje;
+    conversacion.estado = "esperandoCantidadCotizacion";
+
+    await enviarMensaje(
+        idUsuario,
+        "Perfecto. 👍\n\n¿Cuántas piezas de " +
+        mensaje +
+        " deseas cotizar?"
+    );
+
+    return;
+}
+
+// ESPERANDO CANTIDAD PARA COTIZACIÓN
+if (conversacion.estado === "esperandoCantidadCotizacion") {
+
+    conversacion.cantidad = mensaje;
+
+    await enviarMensaje(
+        idUsuario,
+        "📝 Tu solicitud de cotización ha sido registrada.\n\n" +
+        "Producto: " + conversacion.producto +
+        "\nCantidad: " + conversacion.cantidad + " piezas\n\n" +
+        "Un asesor elaborará tu cotización y se pondrá en contacto contigo lo antes posible.\n\n" +
+        "Si deseas realizar otra consulta escribe *Menú*.\nSi deseas finalizar la conversación escribe *Salir*."
+    );
+
+    delete conversaciones[idUsuario];
+
+    return;
+}
+
+// ACTIVAR COTIZACIÓN
+if (
+    texto === "2" ||
+    texto.includes("cotizacion") ||
+    texto.includes("cotización") ||
+    texto.includes("cotizar")
+) {
+
+    conversaciones[idUsuario].estado = "esperandoProductoCotizacion";
+
+    const respuesta = responder(mensaje);
+
+    await enviarMensaje(idUsuario, respuesta);
+
+    return;
 }
 
 // ACTIVAR PRODUCTOS
